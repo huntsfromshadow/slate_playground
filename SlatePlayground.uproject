@@ -11,8 +11,8 @@
 		},
 		{
 			"Name": "ModuleWidgetGallery",
-			"Type": "Runtime",
-			"LoadingPhase": "Default",
+			"Type": "Editor",
+			"LoadingPhase": "PostEngineInit",
 			"AdditionalDependencies": [
 				"Engine"
 			]

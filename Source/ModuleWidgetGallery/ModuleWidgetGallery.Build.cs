@@ -6,7 +6,8 @@ public class ModuleWidgetGallery : ModuleRules
 	{
 		PrivateDependencyModuleNames.AddRange(new string[]
 		{
-			"Core", "CoreUObject", "Engine", "ModuleWidgetGallery"	
+			"Core", "CoreUObject", "Engine", "ModuleWidgetGallery",
+			"Slate", "SlateCore", "EditorWidgets"
 		});
 	}
 }

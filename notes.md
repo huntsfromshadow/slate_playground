@@ -17,5 +17,6 @@ Notes for myself
 - https://www.youtube.com/watch?v=oCML-NOTArE -> Creating a UMG/Slate Image in Unreal Engine
 
 ## Blogs
-- https://lxjk.github.io/2019/10/01/How-to-Make-Tools-in-U-E.html#_setup_editor_module
+- https://lxjk.github.io/2019/10/01/How-to-Make-Tools-in-U-E.html#_setup_editor_module (Note in UE4)
 - https://docs.unrealengine.com/5.3/en-US/how-to-make-a-gameplay-module-in-unreal-engine/
+- https://docs.unrealengine.com/5.0/en-US/slate-editor-window-quickstart-guide-for-unreal-engine/
