@@ -1,4 +1,5 @@
-https://ikrima.dev/ue4guide/editor-extensions/slate/useful-slate-code-samples/
-https://easycomplex-tech.com/blog/Unreal/AssetEditor/UEAssetEditorDev-AssetEditorGraph/
-https://docs.unrealengine.com/5.2/en-US/slate-ui-widget-examples-for-unreal-engine/
+# Slate Playground
+Repo of Various slate work and tests in unreala.
+
+Everyone is welcome to use this, but don't assume any of it works.
 

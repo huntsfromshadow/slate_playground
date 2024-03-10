@@ -10,12 +10,9 @@
 			"LoadingPhase": "Default"
 		},
 		{
-			"Name": "ModuleWidgetGallery",
+			"Name": "MySlateGalleryModule",
 			"Type": "Editor",
-			"LoadingPhase": "PostEngineInit",
-			"AdditionalDependencies": [
-				"Engine"
-			]
+			"LoadingPhase": "Default"
 		}
 	],
 	"Plugins": [
