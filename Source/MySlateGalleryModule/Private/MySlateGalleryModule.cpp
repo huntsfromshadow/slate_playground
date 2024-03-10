@@ -3,8 +3,6 @@
 
 #define LOCTEXT_NAMESPACE "FMySlateGalleryModule"
 
-
-
 void FMySlateGalleryModule::StartupModule()
 {
 	// Register function to called when menu system is brought online
@@ -12,6 +10,7 @@ void FMySlateGalleryModule::StartupModule()
 		FSimpleMulticastDelegate::FDelegate::CreateRaw(
 			this, &FMySlateGalleryModule::RegisterMenuExtensions)
 	);
+
 }
 
 void FMySlateGalleryModule::ShutdownModule()
@@ -30,6 +29,7 @@ void FMySlateGalleryModule::RegisterMenuExtensions()
 	// and easier (see Shutdown above)
 	FToolMenuOwnerScoped OwnerScoped(this);
 
+/*
 	// Extend the "File" Section of the main toolbar.
 	UToolMenu* ToolbarMenu = UToolMenus::Get()->ExtendMenu(
 		"LevelEditor.LevelEditorToolBar.ModesToolBar");
@@ -46,6 +46,7 @@ void FMySlateGalleryModule::RegisterMenuExtensions()
 		INVTEXT("Tooltip for My custom button"),
 		FSlateIcon(FAppStyle::GetAppStyleSetName(), "Icons.Comment")
 	));
+*/
 
 	// Add Menu
 	// Add a new section to the select menu right after the "BSP" section
@@ -62,10 +63,12 @@ void FMySlateGalleryModule::RegisterMenuExtensions()
 		INVTEXT("Tooltip for my custom entry"),
 		FSlateIcon(),
 		FExecuteAction::CreateLambda([]() 
-{
+		{
 			UE_LOG(LogTemp, Log, TEXT("MyCustomEntry triggered!!"));
-})
-));
+			FGlobalTabManager::Get()->InvokeTab()
+		})
+	));
+
 }
 
 #undef LOCTEXT_NAMESPACE
