@@ -65,7 +65,7 @@ void FMySlateGalleryModule::RegisterMenuExtensions()
 		FExecuteAction::CreateLambda([]() 
 		{
 			UE_LOG(LogTemp, Log, TEXT("MyCustomEntry triggered!!"));
-			FGlobalTabManager::Get()->InvokeTab()
+			
 		})
 	));
 
