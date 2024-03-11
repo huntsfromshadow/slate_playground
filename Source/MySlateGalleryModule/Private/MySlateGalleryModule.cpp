@@ -1,5 +1,8 @@
-﻿#include "MySlateGalleryModule.h"
+﻿// ReSharper disable CommentTypo
+#include "MySlateGalleryModule.h"
 #include "ToolMenus.h"
+
+static const FName MySlateGalleryWindowTabName("MySlateGalleryWindow");
 
 #define LOCTEXT_NAMESPACE "FMySlateGalleryModule"
 
@@ -11,6 +14,12 @@ void FMySlateGalleryModule::StartupModule()
 			this, &FMySlateGalleryModule::RegisterMenuExtensions)
 	);
 
+	// Register the Tab Spawner
+	FGlobalTabmanager::Get()->RegisterNomadTabSpawner(
+		MySlateGalleryWindowTabName,	// FName of the new Tab (defined above
+		FOnSpawnTab::CreateRaw(this, &FMySlateGalleryModule::OnSpawnPluginTab))	// What to do when spawned
+	.SetDisplayName(FText::FromString("My Slate Gallery"))
+	.SetMenuType(ETabSpawnerMenuType::Hidden);
 }
 
 void FMySlateGalleryModule::ShutdownModule()
@@ -20,6 +29,8 @@ void FMySlateGalleryModule::ShutdownModule()
 
 	// Unregister all our menu extensions
 	UToolMenus::UnregisterOwner(this);
+
+	FGlobalTabmanager::Get()->UnregisterNomadTabSpawner(MySlateGalleryWindowTabName);
 }
 
 void FMySlateGalleryModule::RegisterMenuExtensions()
@@ -65,10 +76,22 @@ void FMySlateGalleryModule::RegisterMenuExtensions()
 		FExecuteAction::CreateLambda([]() 
 		{
 			UE_LOG(LogTemp, Log, TEXT("MyCustomEntry triggered!!"));
-			
+			FGlobalTabmanager::Get()->TryInvokeTab(MySlateGalleryWindowTabName);
 		})
 	));
 
+}
+
+// ReSharper disable once CppMemberFunctionMayBeStatic
+TSharedRef<class SDockTab> FMySlateGalleryModule::OnSpawnPluginTab(const class FSpawnTabArgs& SpawnTabArgs)
+{
+	const FText WidgetText = FText::FromString("Hello World");
+	return SNew(SDockTab)
+	.TabRole(ETabRole::NomadTab)
+	[
+		SNew(STextBlock)
+			.Text(WidgetText)
+	];
 }
 
 #undef LOCTEXT_NAMESPACE

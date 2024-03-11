@@ -12,4 +12,5 @@ public:
 
 private:
     void RegisterMenuExtensions();
+    TSharedRef<class SDockTab> OnSpawnPluginTab(const class FSpawnTabArgs& SpawnTabArgs);
 };
